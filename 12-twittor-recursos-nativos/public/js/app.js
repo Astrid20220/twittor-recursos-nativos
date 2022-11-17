@@ -99,12 +99,12 @@ function crearMensajeHTML(mensaje, personaje, lat, lng, foto) {
                 ${ mensaje }
                 `;
     
-    if ( foto ) {
-        content += `
-                <br>
-                <img class="foto-mensaje" src="${ foto }">
-        `;
-    }
+    //if ( foto ) {
+        //content += `
+               // <br>
+                //<img class="foto-mensaje" src="${ foto }">
+       // `;
+   // }
         
     content += `</div>        
                 <div class="arrow"></div>
@@ -244,8 +244,8 @@ postBtn.on('click', function() {
         mensaje: mensaje,
         user: usuario,
         lat: lat,
-        lng: lng,
-        foto: foto
+        lng: lng
+        
     };
 
 
@@ -260,8 +260,7 @@ postBtn.on('click', function() {
     .then( res => console.log( 'app.js', res ))
     .catch( err => console.log( 'app.js error:', err ));
 
-    camera.apagar();
-    contenedorCamara.addClass('oculto');
+   
 
     crearMensajeHTML( mensaje, usuario, lat, lng, foto );
     
@@ -276,6 +275,8 @@ function getMensajes() {
     fetch('api')
         .then( res => res.json() )
         .then( posts => {
+
+            console.log(posts);
 
 
             posts.forEach( post => 
@@ -493,8 +494,9 @@ btnLocation.on('click', () => {
 
         console.log(pos);
         mostrarMapaModal( pos.coords.latitude, pos,coords.latitude);
-        
 
+        lat = pos.coords.latitude;
+        lat = pos.coords.longitude;
     });
     
 

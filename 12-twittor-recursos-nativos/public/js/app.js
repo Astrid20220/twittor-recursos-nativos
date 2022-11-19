@@ -101,12 +101,12 @@ function crearMensajeHTML(mensaje, personaje, lat, lng, foto) {
                 ${ mensaje }
                 `;
     
-    //if ( foto ) {
-        //content += `
-               // <br>
-                //<img class="foto-mensaje" src="${ foto }">
-       // `;
-   // }
+    if ( foto ) {
+        content += `
+                <br>
+               <img class="foto-mensaje" src="${ foto }">
+        `;
+    }
         
     content += `</div>        
                 <div class="arrow"></div>
@@ -246,7 +246,8 @@ postBtn.on('click', function() {
         mensaje: mensaje,
         user: usuario,
         lat: lat,
-        lng: lng
+        lng: lng,
+        foto: foto
         
     };
 

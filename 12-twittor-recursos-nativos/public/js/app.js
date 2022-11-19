@@ -77,6 +77,8 @@ var foto = null;
 var usuario;
 
 
+//document.getElementById('player');
+const camara = new Camara($ ('#player')[0]);
 
 // ===== Codigo de la aplicación
 
@@ -510,6 +512,9 @@ btnLocation.on('click', () => {
 btnPhoto.on('click', () => {
 
     console.log('Inicializar camara');
+    contenedorCamara.removeClass('oculto');
+
+    camara.encender();
 
 });
 
